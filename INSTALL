@@ -1,0 +1,30 @@
+# INSTALL
+
+## Installation Instructions for reptxt
+
+To install the `reptxt` utility, please follow the steps below:
+
+### Prerequisites
+Ensure that you have the necessary build tools installed, such as `make` and a C compiler (e.g., `gcc`).
+
+### Installation Steps
+
+1. **Configure the Package**
+   Open a terminal and navigate to the directory where you have the `reptxt` package. Run the following command to configure the package:
+   ./configure
+
+2. **Build the Package**
+   After configuring, compile the package by running:
+   make
+
+3. **Install the Package**
+   Finally, install the package system-wide by executing:
+   sudo make install
+
+### Notes
+- You may need superuser privileges to install the package, which is why `sudo` is used in the installation step. If you do not have sudo access, you can install it locally by running make install without `sudo`, but be sure to adjust your PATH accordingly.
+
+### Troubleshooting
+If you encounter any issues during installation, please check the output for error messages and refer to the documentation in the `doc/` directory for additional help.
+
+Thank you for using `reptxt`! Enjoy replacing your text efficiently!

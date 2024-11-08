@@ -1,0 +1,120 @@
+@c -*-texinfo-*-
+@c This is part of the reptxt Reference Manual.
+@c Copyright (C) 2024
+@c Matvii Jarosh
+@c See the file reptxt.texi for copying conditions.
+
+\input texinfo
+@settitle reptxt 1.0
+
+@copying
+Copyright @copyright{} 2024 Matvii Jarosh
+@end copying
+
+@titlepage
+@title reptxt manual
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@author Matvii Jarosh
+@end titlepage
+
+@contents
+
+@node Top
+@top reptxt
+
+This manual is for reptxt
+(version 1.0, updated 2024).
+
+@menu
+* Introduction::        Introduction to reptxt.
+* Usage::              How to use reptxt.
+* Options::            Detailed options for reptxt.
+* Examples::           Practical examples of using reptxt.
+* GNU General Public License::  Licensing information.
+* Index::             Complete index.
+@end menu
+
+@node Introduction
+@chapter Introduction
+
+reptxt is a utility designed to efficiently replace specified text within input streams and files. This tool is particularly useful for developers and system administrators who need to modify text data quickly and accurately. Understanding how to use reptxt can significantly enhance your productivity when dealing with large text files or streams.
+
+This edition corresponds to version 1.0 of reptxt, and it includes various enhancements for usability and performance.
+
+@node GNU GENERAL PUBLIC LICENSE
+@chapter GNU GENERAL PUBLIC LICENSE
+
+@include gpl-3.0.texi
+
+@node GNU FREE DOCUMANTATION LICENSE
+@chapter GNU FREE DOCUMANTATION LICENSE
+
+@include fdl.texi
+
+@node Usage
+@chapter Usage
+
+Usage: reptxt [OPTION...] OLD NEW [FILE]...
+
+reptxt allows users to replace occurrences of OLD text with NEW text in the specified FILE(s). If no files are specified, reptxt will read from standard input.
+
+@node Options
+@chapter Options
+
+@table @option
+@item -o, --output=OUTFILE
+Output the modified text to OUTFILE instead of to standard output. This option is useful for redirecting results to a specific file without changing the original input.
+
+For example this option better use if you use standart input.
+
+@item -u, --unique-output
+When this option is enabled, the utility creates a separate output file for each unique instance of OLD text found in the input. Each output file will be named according to a defined naming convention, allowing for easier tracking of changes.
+
+For example this option better use if you use files.
+
+@item -v, --verbose
+This option produces verbose output, providing detailed information about the replacements being made. It is useful for debugging or for users who want to monitor the operation closely.
+
+@item -x, --except
+When this option is specified, reptxt will replace all occurrences of NEW text except those that match OLD text. This can be particularly useful when you want to exclude certain replacements.
+
+@item -?, --help
+Displays this help list, summarizing available options and their usage.
+
+@item --usage
+Provides a short usage message, giving a quick overview of how to invoke reptxt.
+
+@item -V, --version
+Prints the program version and copyright information.
+@end table
+
+Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options.
+
+@node Examples
+@chapter Examples
+
+@example
+# Basic usage, replacing "foo" with "bar" in a file
+reptxt foo bar input.txt
+
+# Output to a specific file
+reptxt -o output.txt foo bar input.txt
+
+# Verbose output during replacement
+reptxt -v foo bar input.txt
+
+# Unique output for each replacement
+reptxt -u foo bar input.txt
+
+# Replacing but excluding certain terms
+reptxt -x foo bar input.txt
+@end example
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@bye
